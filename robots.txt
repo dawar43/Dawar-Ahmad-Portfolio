@@ -1,0 +1,5 @@
+# robots.txt for dawarahmad.com
+User-agent: *
+Allow: /
+
+Sitemap: https://dawarahmad.com/sitemap.xml

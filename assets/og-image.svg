@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0a0a0a"/>
+  <rect x="0" y="0" width="1200" height="630" fill="url(#grad)" opacity="0.3"/>
+  <defs>
+    <radialGradient id="grad" cx="85%" cy="15%" r="60%">
+      <stop offset="0%" stop-color="#f5820b" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#0a0a0a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <text x="80" y="280" font-family="sans-serif" font-weight="800" font-size="140" fill="#f4f1ea" letter-spacing="-2">DAWAR</text>
+  <text x="80" y="400" font-family="sans-serif" font-weight="800" font-size="140" fill="#f5820b" letter-spacing="-2">AHMAD</text>
+  <text x="80" y="480" font-family="sans-serif" font-weight="400" font-size="28" fill="#8a8a8a" letter-spacing="2">GRAPHIC &amp; CREATIVE DESIGNER</text>
+  <circle cx="1120" cy="100" r="20" fill="#f5820b" opacity="0.6"/>
+</svg>
