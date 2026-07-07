@@ -306,6 +306,31 @@
   }
   .contact-links a:last-child{border-right:none;}
   .contact-links a:hover{background:var(--orange);color:var(--black);}
+
+  /* Visible email + copy button */
+  .contact-email-visible{
+    margin-top:28px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;
+  }
+  .contact-email-visible .email-text{
+    font-size:17px;font-weight:500;color:var(--cream);
+    background:var(--panel);border:1px solid var(--line);
+    padding:10px 22px;font-family:'Inter',sans-serif;letter-spacing:0.3px;
+    user-select:all;
+  }
+  .email-copy-btn{
+    background:var(--orange);color:var(--black);border:none;
+    padding:10px 18px;font-weight:700;font-size:12px;letter-spacing:1px;
+    text-transform:uppercase;cursor:pointer;min-height:44px;
+    transition:transform .2s, opacity .2s;
+  }
+  .email-copy-btn:hover{transform:translateY(-1px);}
+  .email-copy-btn:active{opacity:0.8;}
+  .copy-feedback{
+    font-size:12px;color:#2ecc71;font-weight:600;
+    opacity:0;transition:opacity .3s;
+  }
+  .copy-feedback.show{opacity:1;}
+
   footer{padding:36px 0;display:flex;justify-content:space-between;color:var(--grey);font-size:12px;letter-spacing:1px;text-transform:uppercase;flex-wrap:wrap;gap:10px;}
 
   @media (max-width:900px){
@@ -362,7 +387,7 @@
       <a href="#contact">Contact</a>
     </nav>
     <div style="display:flex;align-items:center;gap:16px;">
-      <a class="nav-cta" href="mailto:dawarahmad935@email.com" aria-label="Hire me via email">Hire Me</a>
+      <a class="nav-cta" href="mailto:dawarahmad935@gmail.com" aria-label="Hire me via email">Hire Me</a>
       <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -375,7 +400,7 @@
     <a href="#work">Work</a>
     <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
-    <a class="nav-cta" href="mailto:dawarahmad935@email.com" style="border-color:var(--orange);color:var(--orange);padding:12px 28px;">Hire Me</a>
+    <a class="nav-cta" href="mailto:dawarahmad935@gmail.com" style="border-color:var(--orange);color:var(--orange);padding:12px 28px;">Hire Me</a>
   </nav>
 </header>
 
@@ -705,8 +730,13 @@
     <div class="eyebrow" style="justify-content:center;">07 — Get In Touch</div>
     <h2 class="display" style="margin-top:20px;">Let's Create<br>Something <span>Great</span>.</h2>
     <p class="contact-sub">Open to freelance, remote and full‑time opportunities in branding, social media and print design.</p>
+    <div class="contact-email-visible">
+      <span class="email-text" id="email-text">dawarahmad935@gmail.com</span>
+      <button class="email-copy-btn" id="email-copy-btn" aria-label="Copy email to clipboard" onclick="copyEmail()">Copy</button>
+      <span class="copy-feedback" id="copy-feedback">Copied!</span>
+    </div>
     <div class="contact-links">
-      <a href="mailto:dawarahmad935@email.com">Email</a>
+      <a href="mailto:dawarahmad935@gmail.com">Email</a>
       <a href="tel:+923206526879">+92 320 6526879</a>
     </div>
   </div>
@@ -813,6 +843,30 @@
       }
     });
   });
+
+  // --- Copy email to clipboard ---
+  window.copyEmail = function(){
+    var email = 'dawarahmad935@gmail.com';
+    var feedback = document.getElementById('copy-feedback');
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(email).then(function(){
+        feedback.classList.add('show');
+        setTimeout(function(){ feedback.classList.remove('show'); }, 2000);
+      });
+    } else {
+      // Fallback: select the text
+      var textEl = document.getElementById('email-text');
+      if(textEl){
+        var range = document.createRange();
+        range.selectNodeContents(textEl);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+        feedback.classList.add('show');
+        setTimeout(function(){ feedback.classList.remove('show'); }, 2000);
+      }
+    }
+  };
 })();
 </script>
 
