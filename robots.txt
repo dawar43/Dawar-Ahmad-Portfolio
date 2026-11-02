@@ -1,5 +1,5 @@
-# robots.txt for dawarahmad.com
+# robots.txt for dawar-ahmad-portfolio.vercel.app
 User-agent: *
 Allow: /
 
-Sitemap: https://dawarahmad.com/sitemap.xml
+Sitemap: https://dawar-ahmad-portfolio.vercel.app/sitemap.xml
